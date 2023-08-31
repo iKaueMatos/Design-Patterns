@@ -24,7 +24,7 @@ No entanto, é importante notar que os padrões de projeto não são uma soluç�
 
 ## Exemplos:
 
-1. Factory Method
+**1. Factory Method**
 O padrão Factory Method define uma interface para criar objetos em uma superclasse, mas permite que as subclasses escolham qual classe concreta instanciar.
 
 ```php
@@ -45,7 +45,7 @@ class CriadorConcretoB implements Criador {
 }
 ```
 
-2. Abstract Factory
+**2. Abstract Factory****
 O padrão Abstract Factory fornece uma interface para criar famílias de objetos relacionados sem especificar suas classes concretas.
 
 ```php
@@ -65,7 +65,7 @@ class FabricaConcretaA implements Fabrica {
 }
 ```
 
-3. Singleton
+**3. Singleton**
 O padrão Singleton garante que uma classe tenha apenas uma instância e fornece um ponto global para acessá-la.
 
 ```php
@@ -83,10 +83,9 @@ class Singleton {
 }
 ```
 
-4. Simple Factory
-O Simple Factory oferece uma maneira simples de criar objetos, abstraindo a lógica de criação para uma classe separada, chamada "Factory". Essa fábrica é responsável por criar instâncias de diferentes classes concretas, com base nos parâmetros fornecidos, sem que o cliente tenha que conhecer os detalhes de criação.
+4. O **Simple Factory** oferece uma maneira simples de criar objetos, abstraindo a lógica de criação para uma classe separada, chamada "Factory". Essa fábrica é responsável por criar instâncias de diferentes classes concretas, com base nos parâmetros fornecidos, sem que o cliente tenha que conhecer os detalhes de criação.
 
-Aqui estão os principais elementos do padrão Simple Factory:
+## Aqui estão os principais elementos do padrão Simple Factory:
 
 Produto: A classe base ou interface que define o comportamento comum dos objetos que a fábrica irá criar.
 
@@ -152,7 +151,7 @@ class Funcionario implements LoginFactoryInterface {
 
 ## Padrões Estruturais
 
-1. Adapter
+**1. Adapter**
 O padrão Adapter permite que objetos com interfaces incompatíveis trabalhem juntos através de um adaptador que converte a interface de um objeto em outra.
 
 ```php
@@ -179,7 +178,7 @@ class AdaptadorMotor implements Motor {
 }
 ```
 
-2. Decorator
+**2. Decorator**
 O padrão Decorator permite adicionar comportamentos a objetos individualmente, de forma dinâmica, sem afetar outros objetos da mesma classe.
 ```php
 
@@ -215,7 +214,7 @@ class DecoradorA extends Decorador {
 
 ## Padrões Comportamentais
 
-1. Strategy
+**1. Strategy**
 O padrão Strategy define uma família de algoritmos, encapsula cada um deles e os torna intercambiáveis. Isso permite que o algoritmo varie independentemente dos clientes que o utilizam.
 
 ```php
@@ -248,7 +247,7 @@ class Contexto {
 }
 ```
 
-2. Observer
+**2. Observer**
 O padrão Observer define uma dependência entre objetos de modo que quando um objeto muda de estado, todos seus dependentes são notificados e atualizados automaticamente.
 
 ```php
