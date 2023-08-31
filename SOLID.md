@@ -46,6 +46,145 @@ Cada diretório de padrão contém exemplos de código, explicações e diagrama
 
 Sinta-se à vontade para explorar cada diretório para entender como esses princípios podem ser aplicados em cenários do mundo real.
 
+
+## Codigo
+
+# Princípio da Responsabilidade Única (SRP)
+Exemplo: Uma classe que lida com leitura de arquivos CSV e cálculos estatísticos.
+
+```php
+class LeitorCSV {
+    public function lerArquivo($caminho) {
+        // Lê o arquivo CSV
+    }
+}
+
+class CalculadoraEstatistica {
+    public function calcularMedia($dados) {
+        // Calcula a média dos dados
+    }
+}
+```php
+
+Padrão de Projeto Associado: Nenhum padrão específico, mas o princípio SRP indica que essa classe deve ser dividida em duas, uma para leitura e outra para cálculos.
+
+# Princípio do Aberto/Fechado (OCP)
+
+Exemplo: Processamento de pagamentos com diferentes métodos de pagamento usando o padrão Strategy.
+
+```php
+interface MetodoPagamento {
+    public function processarPagamento($valor);
+}
+
+class CartaoCredito implements MetodoPagamento {
+    public function processarPagamento($valor) {
+        // Processamento de pagamento via cartão de crédito
+    }
+}
+
+class PayPal implements MetodoPagamento {
+    public function processarPagamento($valor) {
+        // Processamento de pagamento via PayPal
+    }
+}
+
+class ProcessadorPagamento {
+    private $metodoPagamento;
+
+    public function setMetodoPagamento(MetodoPagamento $metodo) {
+        $this->metodoPagamento = $metodo;
+    }
+
+    public function processar($valor) {
+        $this->metodoPagamento->processarPagamento($valor);
+    }
+}
+```
+
+# Princípio da Substituição de Liskov (LSP)
+Exemplo: Usando o princípio LSP com um padrão Template Method.
+
+```php
+abstract class Forma {
+    abstract public function calcularArea();
+}
+
+class Circulo extends Forma {
+    public function calcularArea() {
+        // Cálculo da área do círculo
+    }
+}
+
+class Retangulo extends Forma {
+    public function calcularArea() {
+        // Cálculo da área do retângulo
+    }
+}
+
+function calcularAreaTotal(Forma $forma1, Forma $forma2) {
+    return $forma1->calcularArea() + $forma2->calcularArea();
+}
+```
+
+Padrão de Projeto Associado: Padrão Template Method para permitir que subclasses implementem detalhes específicos enquanto o fluxo geral é mantido na classe base.
+
+# Princípio da Segregação de Interface (ISP)
+Exemplo: Um exemplo simplificado de segregação de interfaces com um padrão Adapter.
+
+```php
+interface Trabalhador {
+    public function trabalhar();
+}
+
+interface Comedor {
+    public function comer();
+}
+
+class Empregado implements Trabalhador, Comedor {
+    public function trabalhar() {
+        // Implementação do trabalho
+    }
+
+    public function comer() {
+        // Implementação da alimentação
+    }
+}
+
+class Robo implements Trabalhador {
+    public function trabalhar() {
+        // Implementação do trabalho
+    }
+}
+```
+
+Padrão de Projeto Associado: Padrão Adapter para adaptar a interface do Robô para a interface Trabalhador.
+
+# Princípio da Inversão de Dependência (DIP)
+Exemplo: Usando o princípio DIP com Injeção de Dependência.
+
+```php
+class BancoDados {
+    public function consultar($query) {
+        // Consulta ao banco de dados
+    }
+}
+
+class LogicaNegocio {
+    private $bancoDados;
+
+    public function __construct(BancoDados $bancoDados) {
+        $this->bancoDados = $bancoDados;
+    }
+
+    public function processar() {
+        // Utiliza o banco de dados
+    }
+}
+```
+
+Padrão de Projeto Associado: Injeção de Dependência para passar dependências para uma classe em vez de codificá-las diretamente.
+
 ## Contribuições
 
 Contribuições, correções e sugestões são bem-vindas! Se você encontrar algum problema ou quiser adicionar mais exemplos, fique à vontade para abrir um pull request.
