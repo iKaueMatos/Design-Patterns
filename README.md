@@ -83,6 +83,73 @@ class Singleton {
 }
 ```
 
+4. Simple Factory
+O Simple Factory oferece uma maneira simples de criar objetos, abstraindo a lógica de criação para uma classe separada, chamada "Factory". Essa fábrica é responsável por criar instâncias de diferentes classes concretas, com base nos parâmetros fornecidos, sem que o cliente tenha que conhecer os detalhes de criação.
+
+Aqui estão os principais elementos do padrão Simple Factory:
+
+Produto: A classe base ou interface que define o comportamento comum dos objetos que a fábrica irá criar.
+
+Produtos Concretos: As classes que implementam a interface do produto. São as classes que a fábrica cria.
+
+Fábrica Simples: A classe responsável por criar instâncias de produtos concretos com base nos parâmetros passados a ela. Isso ajuda a encapsular a criação de objetos.
+
+Vantagens do Simple Factory:
+
+Encapsulamento da Criação: A criação de objetos é isolada em uma única classe, facilitando a manutenção e evitando a duplicação de código de criação em várias partes do sistema.
+
+Abstração: O cliente não precisa saber os detalhes de criação dos objetos; ele só precisa usar a fábrica para obter as instâncias desejadas.
+
+Flexibilidade: Se você precisar mudar a implementação de criação de objetos, pode fazer isso dentro da fábrica sem afetar o código do cliente.
+
+No entanto, é importante notar que o Simple Factory não segue o princípio do OCP (Open-Closed Principle), um dos princípios SOLID, pois para adicionar um novo tipo de objeto, você precisa modificar a fábrica existente. Já o padrão Factory Method é mais flexível nesse sentido.
+
+Exemplo:
+
+```php
+<?php
+
+interface LoginFactoryInterface {
+    public function logar( string $email, string $password);
+}
+
+class LoginFactory {
+    public static function make(string $type) {
+        switch($type) {
+            case 'admin':
+                return new Admin;
+                break;
+            case 'user':
+                return new User;
+                break;
+            case 'funcionario':
+                return new Funcionario;
+                break;
+            default: 
+                throw new Exception("Classe do tipo {$type} não existe");
+        }
+    }
+}
+
+class Admin implements LoginFactoryInterface {
+    public function logar(string $email, string $password) {
+        echo "seja bem vindo! {$email}";
+    }
+}
+
+class User implements LoginFactoryInterface {
+    public function logar(string $email, string $password) {
+        echo "seja bem vindo! {$email}";
+    }
+}
+
+class Funcionario implements LoginFactoryInterface {
+    public function logar(string $email, string $password) {
+        echo "seja bem vindo! {$email}";
+    }
+}
+```
+
 ## Padrões Estruturais
 
 1. Adapter
