@@ -64,7 +64,7 @@ class CalculadoraEstatistica {
         // Calcula a média dos dados
     }
 }
-```php
+```
 
 Padrão de Projeto Associado: Nenhum padrão específico, mas o princípio SRP indica que essa classe deve ser dividida em duas, uma para leitura e outra para cálculos.
 
